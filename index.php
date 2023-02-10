@@ -117,7 +117,7 @@
     //New class object
     $Manager = new Manager();
 
-    //Calling the getDB class from Manager, and setting output to variable.
+    //Calling the getDB method from Manager, and setting output to variable.
     $output = $Manager->getDB();
     
     foreach($output as $item) {
