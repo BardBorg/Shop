@@ -6,9 +6,9 @@ Features:
 
 -Adding three product types with attribiutes such as DVD size, Furniture size or book weight.
 
--Data will be passed to DB.
+-Data is be passed to DB.
 
--Mass prodcuts deleting.
+-Mass prodcuts deleting functionality.
 
 -Given data is being formated and shown in containers with checkboxes
 
