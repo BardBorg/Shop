@@ -50,6 +50,8 @@
 
     protected $sku;
 
+      
+      //Creating constructors and getters for each data
     public function __construct($data){
         $this->id=$data['id'];
         $this->sku=$data['SKU'];
@@ -89,7 +91,7 @@
 
         protected $db;
         
-        //New connection to DB. No need to call it.
+        //New connection to DB. No need to call the method.
         public function __construct()
         {
 
@@ -99,7 +101,7 @@
         {
 
             //Data variable holds all the retrieved data from DB.
-            //Calling the select method and assign to data.
+            //Calling the select method and assign it to data.
             $data = $this->db->select();
 
             //Creating empty array for holding the values from table.
@@ -142,11 +144,11 @@
 
 <script>
   
-  function redirect(){
+function redirect(){
     window.location.replace("add-product.php");
     
 }    
-var arr=[]
+  var arr=[]
 
 
 
@@ -158,11 +160,11 @@ function del(){
   //Checking which checkbox is actually checked
   //And creating array of ID's
   var checkboxes = document.querySelectorAll('.delete-checkbox');
-for (var i = 0; i < checkboxes.length; i++) {
+   for (var i = 0; i < checkboxes.length; i++) {
     if (checkboxes[i].checked) {
         arr.push(checkboxes[i].id);
-    }
-}
+        }
+     }
 
     var array_json = JSON.stringify(arr)
     //Passing array to file where is deleting logic.
