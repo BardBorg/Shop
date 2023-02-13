@@ -13,8 +13,8 @@
 </head>
 <body>
     <div>
-    <button class="button-3" id="delete-product-btn" role="button">Mass delete</button>
-    <button class="button-2" onclick="location.href='add-product.php';">Add</button>
+    <button class="button-3" id="delete-product-btn" onclick="del()">MASS DELETE</button>
+    <button class="button-2" id="addition" onclick="redirect()">ADD</button>
     <h1>Product List</h1>
 </div>
 <hr>
@@ -132,7 +132,8 @@
         $type= $item->getType();
 
         //Display products in grid with checkboxes.
-        echo "<div  class='grid-item' style='margin-bottom:5vw;'>$sku<br>$name<br>$price$<br>$type<br><input id='$ID' onClick='reply_click(this.id)' style='float:left; position:relative; top:-130px;visibility:visible;' class='delete-checkbox' type='checkbox'></div>";
+       echo "<div class='grid-item'  style='margin-bottom:5vw;'>$sku<br>$name<br>$price$<br>$type<br><input id='$ID'  style='float:left; position:relative; top:-130px;' class='delete-checkbox' type='checkbox'></div>";
+
 
     }
 
@@ -140,22 +141,28 @@
 </div>
 
 <script>
+  
+  function redirect(){
+    window.location.replace("add-product.php");
+    
+}    
 var arr=[]
 
-//Finding id of clicked element passing the id's to json array
-//than passed to massd.php file where given ids are deleted.
-function reply_click(clicked_id){
-        
 
 
-        document.getElementById("delete-product-btn").addEventListener("click", del)
-        
-    
-        arr.push(clicked_id)
-        console.log(arr)
 
 
 function del(){
+  
+  
+  //Checking which checkbox is actually checked
+  //And creating array of ID's
+  var checkboxes = document.querySelectorAll('.delete-checkbox');
+for (var i = 0; i < checkboxes.length; i++) {
+    if (checkboxes[i].checked) {
+        arr.push(checkboxes[i].id);
+    }
+}
 
     var array_json = JSON.stringify(arr)
     //Passing array to file where is deleting logic.
@@ -169,7 +176,7 @@ function del(){
 
         },
         success: function(response){
-        location.reload()
+        
         
         }
 
