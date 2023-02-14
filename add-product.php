@@ -25,7 +25,7 @@
     <label for="fname">Name</label><br>
     <input type="text" id="name" name="name"><br>
     <label for="fname">Price</label><br>
-    <input type="text" id="price" name="price"><br><br>
+    <input type="number" id="price" name="price"><br><br>
 
 
   </form>
@@ -33,7 +33,7 @@
     <form v-if="form1" method="post">
       <label for="fname">Product-DVD</label><br><br>
       <label for="fname">Please provide DVD size in megabytes</label><br>
-      <input type="text" id="size" name="dvd"><label>MB</label><br><br><br>
+      <input type="number" id="size" name="dvd"><label>MB</label><br><br><br>
 
 
     </form>
@@ -41,17 +41,17 @@
       <label for="fname">Product-Furniture</label><br><br>
       <label for="fname">Please provide dimension in HxWxL format.</label><br><br>
       <label for="Height">Height</label><br>
-      <input type="text" id="Height" name="furn"><br>
+      <input type="number" id="Height" name="furn"><br>
       <label for="Width">Width</label><br>
-      <input type="text" id="Width" name="furn"><br>
+      <input type="number" id="Width" name="furn"><br>
       <label for="Length">Length</label><br>
-      <input type="text" id="Length" name="furn"><br><br><br>
+      <input type="number" id="Length" name="furn"><br><br><br>
 
     </form>
     <form v-if="form3">
       <label>Product-Book</label><br><br>
       <label>Please provide weight in kilograms</label><br>
-      <input type="text" id="weight" name="book"><label>KG</label><br><br><br>
+      <input type="number" id="weight" name="book"><label>KG</label><br><br><br>
 
 
     </form>
@@ -165,8 +165,7 @@
             //Checking for correct input, type and if not empty.
           } else if (response == 'not_taken') {
             if (sku !== "" && name !== "" && price !== "" && dvd !== "" && height !== "" && width !== "" && length !== "" && book !== "") {
-              if (typeof name === "string" && typeof book !== "number" && typeof dvd !== "string" && typeof price === "number" &&
-                typeof height !== "string" && typeof width !== "string" && typeof length !== "string") {
+              
 
                   //Passing to insert DB
                 $.ajax({
@@ -185,9 +184,7 @@
                     window.location.href = "index.php";
                   }
                 });
-              } else {
-                alert("Please, provide the data of indicated type");
-              }
+             
             } else {
               alert("Please, submit required data");
             }
