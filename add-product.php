@@ -91,6 +91,7 @@
           }
         },
         watch: {
+          //Dynamically rendering forms
       selectedOption: function(newValue, oldValue) {
 
         if (newValue === 'DVD') {
@@ -113,7 +114,7 @@
       }
     },
     methods: {
-
+  //Here are methods for checking inputs validity
       dvdinput(event) {
         var dvd2 = document.getElementById("size");
         var notsize = document.getElementById("notifications");
@@ -215,7 +216,7 @@
             if (response == 'taken') {
               alert("SKU already exists");
               return;
-              //Checking for correct input, type and if not empty.
+              //Checking for correct input, if not empty.
             } else if (response == 'not_taken') {
               if (sku !== "" && name !== "" && price !== "" && dvd !== "" && height !== "" && width !== "" && length !== "" && book !== "") {
                 //Passing to insert DB
