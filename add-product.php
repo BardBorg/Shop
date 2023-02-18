@@ -115,14 +115,23 @@
     },
     methods: {
   //Here are methods for checking inputs validity
+      
+      //Method for checking if input contains letters
+     containsLetters(value) {
+        var regex = /[a-zA-Z]/; // Regular expression to match any letter
+        return regex.test(value);
+      },
+
+
+
       dvdinput(event) {
         var dvd2 = document.getElementById("size");
         var notsize = document.getElementById("notifications");
 
 
 
-        var contain2 = /^[a-zA-Z]+$/.test(dvd2.value);
-        if (contain2) {
+        
+        if (this.containsLetters(dvd2.value)) {
           notsize.textContent = "Please provide the data of indicated type";
         } else {
           notsize.textContent = "";
@@ -134,8 +143,8 @@
 
 
 
-        var contain3 = /^[a-zA-Z]+$/.test(book2.value);
-        if (contain3) {
+        
+        if (this.containsLetters(book2.value)) {
           notbook.textContent = "Please provide the data of indicated type";
         } else {
           notbook.textContent = "";
@@ -148,8 +157,8 @@
 
 
 
-        var contain4 = /^[a-zA-Z]+$/.test(height2.value);
-        if (contain4) {
+       
+        if (this.containsLetters(height2.value)) {
           notheight.textContent = "Please provide the data of indicated type";
         } else {
           notheight.textContent = "";
@@ -160,8 +169,8 @@
         var notwidth = document.getElementById("notificationw");
 
 
-        var contain5 = /^[a-zA-Z]+$/.test(width2.value);
-        if (contain5) {
+        
+        if (this.containsLetters(width2.value)) {
           notwidth.textContent = "Please provide the data of indicated type";
         } else {
           notwidth.textContent = "";
@@ -173,8 +182,8 @@
 
 
 
-        var contain6 = /^[a-zA-Z]+$/.test(length2.value);
-        if (contain6) {
+        
+        if (this.containsLetters(length2.value)) {
           notlength.textContent = "Please provide the data of indicated type";
         } else {
           notlength.textContent = "";
