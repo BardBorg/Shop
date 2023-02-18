@@ -134,10 +134,19 @@
         $type= $item->getType();
 
         //Display products in grid with checkboxes.
-       echo "<div class='grid-item'  style='margin-bottom:5vw;'>$sku<br>$name<br>$price$<br>$type<br><input id='$ID'  style='float:left; position:relative; top:-130px;' class='delete-checkbox' type='checkbox'></div>";
-
-
+       echo "<div class='grid-item' onclick='checkCheckbox(\"$ID\")' >
+       <h2>$name</h2>
+       <p>$sku</p>
+       <p>$price$</p>
+       <p>$type</p>
+       <input id='$ID' class='delete-checkbox' type='checkbox'>
+        </div>";
     }
+       echo "<script>
+      function checkCheckbox(id) {
+      var checkbox = document.getElementById(id);
+      checkbox.checked = !checkbox.checked;
+      </script>";
 
     ?>
 </div>
