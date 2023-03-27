@@ -1,5 +1,7 @@
 # Shop
 
+https://assigment-test.000webhostapp.com/index.php
+
 Simple CMS for adding products to shop page.
 
 Features:
